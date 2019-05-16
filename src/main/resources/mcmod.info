@@ -1,0 +1,11 @@
+[
+{
+  "modid": "thezoneproject",
+  "name": "The Zone Project",
+  "description": "Bringing iconic STALKER mutants to modded minecraft.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["DeltaNedas"],
+  "url": "https://github.com/DeltaNedas/the-zone-project/"
+}
+]
