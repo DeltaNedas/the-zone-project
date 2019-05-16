@@ -18,7 +18,6 @@ public class DeathEventHandler {
 		if (event.getSource().damageType.equals("fatal_rads")) {
 			Entity e = event.getEntity();
 			World worldIn = e.world;
-			TheZoneProject.log(worldIn.isRemote ? "its remote" : "not remote");
 			BlockPos pos = e.getPosition();
 			double X = pos.getX();
 			double Y = pos.getY();
@@ -26,7 +25,6 @@ public class DeathEventHandler {
 			float Pitch = e.rotationPitch;
 			float Yaw = e.rotationYaw;
 			if (worldIn.rand.nextInt(InitConfig.mobMutateChance) == 1) { // Mob mutated
-				TheZoneProject.log("mutated!");
 				if (e instanceof EntityZombie) {
 					if (worldIn.rand.nextInt(InitConfig.bloodsuckerMutateChance) == 1) {
 						//EntityBloodsucker mutant = new EntityBloodsucker(worldIn);
@@ -40,12 +38,16 @@ public class DeathEventHandler {
 					}
 				} else if (e instanceof EntityWolf) {
 					TheZoneProject.log("dog :(");
-					if (worldIn.rand.nextInt(InitConfig.pseudowolfMutateChance) == 1) {
+					int pseudoInt = worldIn.rand.nextInt(InitConfig.pseudowolfMutateChance);
+					int blindInt = worldIn.rand.nextInt(InitConfig.blindWolfMutateChance);
+					TheZoneProject.log("Pseudowolf no: " + Integer.toString(pseudoInt));
+					TheZoneProject.log("Blind Wolf no: " + Integer.toString(blindInt));
+					if (pseudoInt == 1) {
 						//EntityPseudowolf mutant = new EntityPseudowolf(worldIn);
 						//mutant.setPositionAndRotation(X, Y, Z, Pitch, Yaw);
 						//worldIn.spawnEntity(mutant);
 						
-					} else if (worldIn.rand.nextInt(InitConfig.blindWolfMutateChance) == 1) {
+					} else if (blindInt == 1) {
 						TheZoneProject.log("blind wolf!");
 						EntityBlindWolf mutant = new EntityBlindWolf(worldIn);
 						mutant.setPositionAndRotation(X, Y, Z, Pitch, Yaw);
