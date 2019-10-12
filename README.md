@@ -1,5 +1,2 @@
 # the-zone-project
-Bringing iconic STALKER mutants to modded minecraft.
-This mod requires Nuclearcraft in order for the mutants to spawn.
-
-You can find the entity models in the models directory. 
+This repository has moved to [BitBucket](https://bitbucket.org/DeltaNedas/the-zone-project/).
