@@ -39,19 +39,19 @@ public class TheZoneProject {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 	public static final List<Entity> ENTITIES = new ArrayList<Entity>();
 	public static final List<SoundEvent> SOUNDS = new ArrayList<SoundEvent>();
-	
+
 	public static Item snorkFoot = new BaseItem("snork_foot");
-	
+
 	public static final CreativeTabs modTab = (new CreativeTabs("tabTheZoneProject") {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(snorkFoot);
 		}
-	});	
-	
+	});
+
 	@Instance
 	public static TheZoneProject instance;
-	
+
 	@SidedProxy(
 		clientSide = Constants.CLIENT_PROXY,
 		serverSide = Constants.COMMON_PROXY
@@ -59,27 +59,23 @@ public class TheZoneProject {
 	public static CommonProxy proxy;
 	public static Logger logger;
 	public static Level level = Level.INFO;
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-		log("PreInitialising...");
 		new InitConfig();							// Does config stuff
 		new InitItems();							// Creates the Items
 		new InitBlocks();							// Creates the Skulls
 		new InitSounds();							// Creates the sounds mutants use
 		new InitEntities();						// Creates the Entities
-		log("PreInitialised!");
 	}
-	
+
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		log("Initialising...");
 		new InitRecipes();						// Sets the recipes
 		new InitEvents();							// Mutation stuff
-		log("Initialised!");
 	}
-	
+
 	public static void log(String text) {
 		if (logger != null) {
 			logger.log(level, text);
